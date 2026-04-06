@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>双等级展示页面</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft Yahei", sans-serif;
+    }
+    body {
+      background: #f5f7fa;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #333;
+    }
+    .level-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .level-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: #222;
+    }
+    .level-1 {
+      border-left: 6px solid #409eff;
+    }
+    .level-2 {
+      border-left: 6px solid #ff7d7d;
+    }
+    .level-desc {
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .level-feature {
+      padding-left: 20px;
+      color: #555;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>会员等级体系</h1>
+
+    <div class="level-card level-1">
+      <div class="level-title">等级一 · 普通用户</div>
+      <div class="level-desc">基础等级，适合日常使用，免费开放。</div>
+      <ul class="level-feature">
+        <li>基础功能使用权限</li>
+        <li>每日普通资源下载</li>
+        <li>标准客服响应</li>
+      </ul>
+    </div>
+
+    <div class="level-card level-2">
+      <div class="level-title">等级二 · 高级会员</div>
+      <div class="level-desc">进阶等级，享受全部功能与专属服务。</div>
+      <ul class="level-feature">
+        <li>全站功能无限制使用</li>
+        <li>无限次高速下载</li>
+        <li>专属客服优先处理</li>
+        <li>隐藏内容与专属福利</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
