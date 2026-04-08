@@ -1,83 +1,125 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>双等级展示页面</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Microsoft Yahei", sans-serif;
-    }
-    body {
-      background: #f5f7fa;
-      padding: 40px 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #333;
-    }
-    .level-card {
-      background: white;
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .level-title {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 16px;
-      color: #222;
-    }
-    .level-1 {
-      border-left: 6px solid #409eff;
-    }
-    .level-2 {
-      border-left: 6px solid #ff7d7d;
-    }
-    .level-desc {
-      color: #666;
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-    .level-feature {
-      padding-left: 20px;
-      color: #555;
-      line-height: 1.8;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership Access</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#111827;color:#fff;padding:25px;max-width:480px;margin:0 auto}
+
+.lang-switch{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:999;
+}
+.lang-btn{
+  background:#1f2937;
+  color:#fff;
+  border:1px solid #374151;
+  padding:6px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.title{text-align:center;margin:40px 0;font-size:24px;color:#f9fafb}
+.card{background:#1f2937;border-radius:18px;padding:28px;margin-bottom:20px;border:1px solid #374151}
+.tag{display:inline-block;background:#10b981;color:#fff;padding:4px 10px;border-radius:8px;font-size:12px;margin-bottom:10px}
+.name{font-size:20px;font-weight:600;margin-bottom:8px}
+.desc{color:#9ca3af;margin-bottom:15px;line-height:1.4}
+.price{font-size:26px;font-weight:bold;color:#10b981;margin-bottom:10px}
+
+/* 按钮样式保留，但是变成纯链接样式 */
+.btn-link {
+  display:block;
+  width:100%;
+  background:#10b981;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  border-radius:14px;
+  padding:16px;
+  font-size:16px;
+  font-weight:600;
+  margin-top:10px;
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>会员等级体系</h1>
 
-    <div class="level-card level-1">
-      <div class="level-title">等级一 · 普通用户</div>
-      <div class="level-desc">基础等级，适合日常使用，免费开放。</div>
-      <ul class="level-feature">
-        <li>基础功能使用权限</li>
-        <li>每日普通资源下载</li>
-        <li>标准客服响应</li>
-      </ul>
-    </div>
+<div class="lang-switch">
+  <button class="lang-btn" onclick="toggleLang()">EN / 中文</button>
+</div>
 
-    <div class="level-card level-2">
-      <div class="level-title">等级二 · 高级会员</div>
-      <div class="level-desc">进阶等级，享受全部功能与专属服务。</div>
-      <ul class="level-feature">
-        <li>全站功能无限制使用</li>
-        <li>无限次高速下载</li>
-        <li>专属客服优先处理</li>
-        <li>隐藏内容与专属福利</li>
-      </ul>
-    </div>
-  </div>
+<div class="title" data-lang="title">Membership Access</div>
+
+<!-- 试用款 -->
+<div class="card">
+  <span class="tag" data-lang="tag1">Trial</span>
+  <div class="name" data-lang="name1">Trial Access</div>
+  <div class="desc" data-lang="desc1">Basic experience, small fee</div>
+  <div class="price">0.01 ETH</div>
+  <a href="mailto:zhxzp1986@gmail.com" class="btn-link" data-lang="buy" target="_blank">Contact Now</a>
+</div>
+
+<!-- 入门款 -->
+<div class="card">
+  <span class="tag" data-lang="tag2">Entry</span>
+  <div class="name" data-lang="name2">Starter Access</div>
+  <div class="desc" data-lang="desc2">For new members</div>
+  <div class="price">0.05 ETH</div>
+  <a href="mailto:zhxzp1986@gmail.com" class="btn-link" data-lang="buy" target="_blank">Contact Now</a>
+</div>
+
+<!-- 标准款 -->
+<div class="card">
+  <span class="tag" data-lang="tag3">Recommended</span>
+  <div class="name" data-lang="name3">Premium Access</div>
+  <div class="desc" data-lang="desc3">Full features & support</div>
+  <div class="price">0.2 ETH</div>
+  <a href="mailto:zhxzp1986@gmail.com" class="btn-link" data-lang="buy" target="_blank">Contact Now</a>
+</div>
+
+<script>
+let currentLang = "en";
+const langData = {
+  en: {
+    title: "Membership Access",
+    tag1: "Trial",
+    name1: "Trial Access",
+    desc1: "Basic experience, small fee",
+    tag2: "Entry",
+    name2: "Starter Access",
+    desc2: "For new members",
+    tag3: "Recommended",
+    name3: "Premium Access",
+    desc3: "Full features & support",
+    buy: "Contact Now"
+  },
+  cn: {
+    title: "会员权限开通",
+    tag1: "试用",
+    name1: "试用权限",
+    desc1: "基础体验，低门槛",
+    tag2: "入门",
+    name2: "入门权限",
+    desc2: "新手入门使用",
+    tag3: "推荐",
+    name3: "高级权限",
+    desc3: "完整功能与服务",
+    buy: "立即联系"
+  }
+};
+
+function toggleLang() {
+  currentLang = currentLang === "en" ? "cn" : "en";
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    el.textContent = langData[currentLang][el.dataset.lang];
+  });
+}
+</script>
+
 </body>
 </html>
